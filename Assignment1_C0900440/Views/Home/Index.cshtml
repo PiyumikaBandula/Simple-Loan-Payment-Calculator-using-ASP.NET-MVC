@@ -1,82 +1,86 @@
-﻿@model LoanPaymentCalModel
+﻿@model LoanPaymentCalModel // Specifies the model type for the view
 @{
-    ViewBag.Title = "Loan Payment Calculator";
+    ViewBag.Title = "Loan Payment Calculator"; // Sets the title of the page
 }
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>Home Page</title>
-        <style>
-            body {
-                padding: 1em;
-                font-family: Arial, Helvetica, sans-serif;
-            }
+<head>
+    <meta name="viewport" content="width=device-width" /> 
+    <title>Home Page</title>
+    <style>
+        /* Styles for the body */
+        body {
+            padding: 1em;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-            .box {
-                border: 2px solid royalblue;
-                padding: 1em;
-                background-color: #fff;
-                max-width: 600px;
-                margin: 20px auto;
-                border-radius: 8px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
+        /* Styles for the container box */
+        .box {
+            border: 2px solid royalblue;
+            padding: 1em;
+            background-color: #fff;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-            h1 {
-                margin-top: 0;
-                color: royalblue;
-            }
+        /* Styles for the main heading */
+        h1 {
+            margin-top: 0;
+            color: royalblue;
+        }
 
+        /* Styles for the labels */
+        label {
+            display: inline-block;
+            width: 15em;
+            height: 1em;
+            padding-right: 1em;
+        }
 
-            label {
-                display: inline-block;
-                width: 15em;
-                height: 1em;
-                padding-right: 1em;
-            }
+        /* Styles for the divs containing the input fields */
+        div {
+            margin-bottom: 5px;
+        }
 
-
-            div {
-                margin-bottom: 5px;
-            }
-
-            input {
-                border: solid thin;
-                border-color: black;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="box">
-        <h1>Loan Calculator</h1>
+        /* Styles for the input fields */
+        input {
+            border: solid thin;
+            border-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Loan Calculator</h1> <!-- Heading for the loan calculator -->
         <form asp-action="Index" method="post">
-            <div asp-validation-summary="All"></div>
+            <!-- Form that posts data to the Index action method -->
+            <div asp-validation-summary="All"></div> <!-- Validation summary for displaying validation errors -->
             <div>
                 <label asp-for="Principal">
+                    <!-- Label for the Principal input field -->
                     Principal:
                 </label>
-                <input asp-for="Principal" />
+                <input asp-for="Principal" /> <!-- Input field for Principal -->
             </div>
             <div>
                 <label asp-for="YearlyInterestRate">
+                    <!-- Label for the Yearly Interest Rate input field -->
                     Yearly Interest Rate:
                 </label>
-                <input asp-for="YearlyInterestRate" />
+                <input asp-for="YearlyInterestRate" /> <!-- Input field for Yearly Interest Rate -->
             </div>
             <div>
-                <label asp-for="NumberOfPaymentsPerYear">Number Of Payments Per Year:</label>
-                <input asp-for="NumberOfPaymentsPerYear" />
+                <label asp-for="NumberOfPaymentsPerYear">Number Of Payments Per Year:</label> <!-- Label for the Number of Payments Per Year input field -->
+                <input asp-for="NumberOfPaymentsPerYear" /> <!-- Input field for Number of Payments Per Year -->
             </div>
             <div>
-                <label>Payment Per Period:</label>
-                <input value="@ViewBag.PaymentPerPeriod.ToString("C2")" readonly>
+                <label>Payment Per Period:</label> <!-- Label for the Payment Per Period display field -->
+                <input value="@ViewBag.PaymentPerPeriod.ToString("C2")" readonly> <!-- Display field for Payment Per Period, read-only -->
             </div>
-            <button type="submit">Calculate</button>
-            <a asp-action="Index">Clear</a>
+            <button type="submit">Calculate</button> <!-- Submit button for the form -->
+            <a asp-action="Index">Clear</a> <!-- Link to clear the form and reset the fields -->
         </form>
-        </div>
-    </body>
+    </div>
+</body>
 </html>
-
-

@@ -1,0 +1,82 @@
+﻿@model LoanPaymentCalModel
+@{
+    ViewBag.Title = "Loan Payment Calculator";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Home Page</title>
+        <style>
+            body {
+                padding: 1em;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .box {
+                border: 2px solid royalblue;
+                padding: 1em;
+                background-color: #fff;
+                max-width: 600px;
+                margin: 20px auto;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            h1 {
+                margin-top: 0;
+                color: royalblue;
+            }
+
+
+            label {
+                display: inline-block;
+                width: 15em;
+                height: 1em;
+                padding-right: 1em;
+            }
+
+
+            div {
+                margin-bottom: 5px;
+            }
+
+            input {
+                border: solid thin;
+                border-color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+        <h1>Loan Calculator</h1>
+        <form asp-action="Index" method="post">
+            <div asp-validation-summary="All"></div>
+            <div>
+                <label asp-for="Principal">
+                    Principal:
+                </label>
+                <input asp-for="Principal" />
+            </div>
+            <div>
+                <label asp-for="YearlyInterestRate">
+                    Yearly Interest Rate:
+                </label>
+                <input asp-for="YearlyInterestRate" />
+            </div>
+            <div>
+                <label asp-for="NumberOfPaymentsPerYear">Number Of Payments Per Year:</label>
+                <input asp-for="NumberOfPaymentsPerYear" />
+            </div>
+            <div>
+                <label>Payment Per Period:</label>
+                <input value="@ViewBag.PaymentPerPeriod.ToString("C2")" readonly>
+            </div>
+            <button type="submit">Calculate</button>
+            <a asp-action="Index">Clear</a>
+        </form>
+        </div>
+    </body>
+</html>
+
+

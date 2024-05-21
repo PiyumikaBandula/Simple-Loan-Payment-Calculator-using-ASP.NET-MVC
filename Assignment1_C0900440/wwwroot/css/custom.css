@@ -1,0 +1,32 @@
+﻿body {
+    padding: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.box {
+    border: solid thin;
+    border-color: royalblue;
+    padding: 1em;
+}
+ 
+h1 {
+    margin-top: 0;
+    color: royalblue;
+}
+
+ 
+label {
+    display: inline-block;
+    width: 10em;
+    padding-right: 1em;
+}
+
+ 
+div {
+    margin-bottom: .5em;
+}
+
+input {
+    border: blue;
+}
